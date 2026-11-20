@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/schibsted-grotesk';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+@custom-variant dark {
+	@media (prefers-color-scheme: dark) {
+		:root:not([data-theme='light']) & {
+			@slot;
+		}
+	}
+	:root[data-theme='dark'] & {
+		@slot;
+	}
+}
+
+:root {
+	--bg: #f4f6f8;
+	--surface: #ffffff;
+	--border-token: #d5dee7;
+	--text: #0b1f33;
+	--text-muted: #3e5065;
+	--text-subtle: #4a5b6e;
+	--link: #004b80;
+	--link-hover: #0b1f33;
+	--accent-text: #b83a10;
+	--chip: #e8eef4;
+
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		--bg: #061a2b;
+		--surface: #0c2a44;
+		--border-token: #1c3f5e;
+		--text: #f3f6f9;
+		--text-muted: #c9d6e2;
+		--text-subtle: #a9bccd;
+		--link: #f3f6f9;
+		--link-hover: #f15a29;
+		--accent-text: #f26132;
+		--chip: #123554;
+		color-scheme: dark;
+	}
+}
+
+:root[data-theme='dark'] {
+	--bg: #061a2b;
+	--surface: #0c2a44;
+	--border-token: #1c3f5e;
+	--text: #f3f6f9;
+	--text-muted: #c9d6e2;
+	--text-subtle: #a9bccd;
+	--link: #f3f6f9;
+	--link-hover: #f15a29;
+	--accent-text: #f26132;
+	--chip: #123554;
+	color-scheme: dark;
+}
+
+@theme inline {
+	--font-sans: 'Schibsted Grotesk Variable', system-ui, sans-serif;
+	--font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+	--container-site: 1080px;
+
+	--color-bg: var(--bg);
+	--color-surface: var(--surface);
+	--color-border: var(--border-token);
+	--color-text: var(--text);
+	--color-text-muted: var(--text-muted);
+	--color-text-subtle: var(--text-subtle);
+	--color-link: var(--link);
+	--color-link-hover: var(--link-hover);
+	--color-accent-text: var(--accent-text);
+	--color-chip: var(--chip);
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	html {
+		@apply font-sans;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-bg text-text antialiased;
+		font-size: 17px;
+		line-height: 1.55;
+	}
+
+	a {
+		@apply text-link transition-colors hover:text-link-hover;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--link);
+		outline-offset: 3px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+}
