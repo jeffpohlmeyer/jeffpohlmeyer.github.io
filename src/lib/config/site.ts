@@ -11,7 +11,7 @@ export const site = {
 	name: 'Jeff Pohlmeyer',
 	role: 'Full-stack developer',
 	location: 'Based near Morristown, NJ',
-	url: 'https://jeffpohlmeyer.github.io'
+	url: 'https://jeffpohlmeyer.dev'
 };
 
 export const links: Links = {

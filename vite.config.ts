@@ -13,7 +13,7 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 			adapter: adapter(),
-			paths: { origin: 'https://jeffpohlmeyer.github.io' }
+			paths: { origin: 'https://jeffpohlmeyer.dev' }
 		})
 	]
 });
